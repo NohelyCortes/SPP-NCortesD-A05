@@ -18,8 +18,13 @@ public class SPPNCortesDA05 {
         solicitaEntero ("la edad");
         solicitaEntero("el año");
         
-        solicitaDouble("el peso");
-        solicitaDouble("la estatura");
+        solicitaDecimal ("tu peso");
+        
+        solicitaPalabra("primer nombre");
+        
+        solicitaNumeroLargo("el resultado de 589*9565");
+        
+        solicitaCaracter("letra del abecadrio");
                 
       
         // TODO code application logic here
@@ -42,7 +47,7 @@ public class SPPNCortesDA05 {
         return numero;
     }
     
-    static double solicitaDouble (Double mensaje){
+    static double solicitaDecimal (String mensaje){
         Scanner kb= new Scanner (System.in);
         double numero=0;
         boolean flag;
@@ -60,4 +65,58 @@ public class SPPNCortesDA05 {
         }while (flag==false);
         return numero;
     }
+    static String solicitaPalabra (String mensaje){
+        Scanner kb= new Scanner (System.in);
+        String a="";
+        boolean flag;
+        do{
+            System.out.println("Introduce"+ mensaje);
+            try{
+                a= kb.nextLine();
+                flag=true;
+                
+            }catch (Exception ex){
+                flag=false;
+                System.out.println("No ha introducido una cadena de caracteres"+ex);
+                kb.nextLine();
+            }
+        }while (flag==false);
+        return a;
+    }
+    static long solicitaNumeroLargo(String mensaje){
+        Scanner kb=new Scanner(System.in);
+        long i=0;
+        boolean flag;
+        do{
+            System.out.println("Introduce " +mensaje);
+            try{
+                i=kb.nextLong();
+                flag=true;
+            }catch(Exception ex){
+                flag=false;
+                System.out.println("El número insertado no es de long"+ex);
+                kb.nextLine();
+            }
+        }while(flag==false);
+        return i;
+    }
+    
+    static char solicitaCaracter(String mensaje){
+        Scanner kb=new Scanner(System.in);
+        char i =0;
+        boolean flag;
+        do{
+            System.out.println("Introduce "+mensaje);//podemos solicitar cualquier numero entero con indicacion de itroduce tal o cual cosa las veces que quieras
+            try{
+                i=kb.next().charAt(0);
+                flag=true;
+            }catch(Exception ex){
+                flag=false;
+                System.out.println("El dato insertado no es de tipo char "+ ex);
+                kb.nextLine();
+            }
+        }while(flag==false);
+        return i;
+    }
+    
 }
